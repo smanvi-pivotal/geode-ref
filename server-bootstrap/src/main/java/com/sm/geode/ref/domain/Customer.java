@@ -16,5 +16,14 @@ public class Customer implements Serializable {
         this.id = id;
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }
 
