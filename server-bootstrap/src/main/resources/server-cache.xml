@@ -7,13 +7,13 @@
 
     <region name="Customer">
         <region-attributes
-                data-policy="replicate"
+                data-policy="partition"
                 statistics-enabled="true"/>
     </region>
 
     <region name="Order">
         <region-attributes
-                data-policy="replicate"
+                data-policy="partition"
                 statistics-enabled="true"/>
     </region>
 

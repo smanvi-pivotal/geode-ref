@@ -9,6 +9,7 @@
         <module>server-bootstrap</module>
         <module>functions</module>
         <module>simple-client</module>
+        <module>transaction</module>
     </modules>
     <name>geode-ref</name>
     <url>http://maven.apache.org</url>
