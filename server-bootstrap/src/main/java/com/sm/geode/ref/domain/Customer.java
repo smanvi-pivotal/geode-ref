@@ -1,15 +1,21 @@
 package com.sm.geode.ref.domain;
 
-import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by smanvi on 4/24/16.
  */
-public class Customer implements Serializable {
+public class Customer {
 
     String name;
     int id;
     String address;
+
+    public List<String> cards;
+
+    public Customer() {
+    }
 
     public Customer(String name, int id, String address) {
         this.name = name;

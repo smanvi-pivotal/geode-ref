@@ -1,7 +1,16 @@
-start locator --name=locator1
-start server --name=geode-server1 --J=-Dgemfire.jmx-manager=true --J="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8983" --classpath=/Users/smanvi/Workspace/geode-ref/server-bootstrap/target/server-bootstrap-1.0-SNAPSHOT.jar --properties-file=../resources/geode-server.properties --server-port=0
-start server --name=geode-server2 --classpath=/Users/smanvi/Workspace/geode-ref/server-bootstrap/target/server-bootstrap-1.0-SNAPSHOT.jar --properties-file=../resources/geode-server.properties --server-port=0
-start server --name=geode-server3 --classpath=/Users/smanvi/Workspace/geode-ref/server-bootstrap/target/server-bootstrap-1.0-SNAPSHOT.jar --properties-file=../resources/geode-server.properties --server-port=0
+start locator --name=locator1 --J=-Dgemfire.jmx-manager=true --J="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5000"
+start server --name=geode-server1 --properties-file=../resources/geode-server.properties --server-port=0
+start server --name=geode-server2 --properties-file=../resources/geode-server.properties --server-port=0
+
+
+#Debug Mode
+#start locator --name=locator1 --J=-Dgemfire.jmx-manager=true --J="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5000"
+#start server --name=geode-server1 --J=-Dgemfire.jmx-manager=true --J="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8983" --classpath=/Users/smanvi/Workspace/geode-ref/server-bootstrap/target/server-bootstrap-1.0-SNAPSHOT.jar --properties-file=../resources/geode-server.properties --server-port=0 --J=-Djava.rmi.server.logCalls=true --J=-Dsun.rmi.server.logLevel=VERBOSE --J=-Dsun.rmi.client.logCalls=true --J=-Dsun.rmi.transport.tcp.logLevel=VERBOSE
+#start server --name=geode-server2 --J=-Dgemfire.jmx-manager=true --J="-agentlib:jdwp=transport=dt_socket,server=n,suspend=n,address=8983" --classpath=/Users/smanvi/Workspace/geode-ref/server-bootstrap/target/server-bootstrap-1.0-SNAPSHOT.jar --properties-file=../resources/geode-server.properties --server-port=0 --J=-Djava.rmi.server.logCalls=true --J=-Dsun.rmi.server.logLevel=VERBOSE --J=-Dsun.rmi.client.logCalls=true --J=-Dsun.rmi.transport.tcp.logLevel=VERBOSE
+
+#start server --name=geode-server2 --classpath=/Users/smanvi/Workspace/geode-ref/server-bootstrap/target/server-bootstrap-1.0-SNAPSHOT.jar --properties-file=../resources/geode-server.properties --server-port=0
+#start server --name=geode-server1 --classpath=/Users/smanvi/Workspace/geode-ref/functions/target/functions-1.0-SNAPSHOT.jar --properties-file=../resources/geode-server.properties --server-port=0
+#start server --name=geode-server3 --classpath=/Users/smanvi/Workspace/geode-ref/server-bootstrap/target/server-bootstrap-1.0-SNAPSHOT.jar --properties-file=../resources/geode-server.properties --server-port=0
 list members
 #Debug mode :
 #start server --name=geode-server1 --J=-Dgemfire.jmx-manager=true --J="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8983" --properties-file=../resources/geode-server.properties --server-port=0
