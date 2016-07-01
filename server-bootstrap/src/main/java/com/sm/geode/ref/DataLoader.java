@@ -5,12 +5,8 @@ import com.gemstone.gemfire.cache.client.ClientCache;
 import com.gemstone.gemfire.cache.client.ClientCacheFactory;
 import com.sm.geode.ref.domain.Customer;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by smanvi on 4/24/16.
@@ -45,10 +41,10 @@ public class DataLoader implements Serializable{
         Region<Integer, Customer> customerRegion = clientCache.getRegion("Customer");
         Customer c1 = new Customer("John",1,"123 Street, Cary NC");
         c1.cards = Collections.EMPTY_LIST;
-        Customer c2 = new Customer("Jane",2,"456 Street, Raleigh NC");
-        c2.cards = Collections.EMPTY_LIST;
-
-        Customer c3 = new Customer("Jake",3,"1200 Street, Cary NC");
+//        Customer c2 = new Customer("Jane",2,"456 Street, Raleigh NC");
+//        c2.cards = Collections.EMPTY_LIST;
+//
+//        Customer c3 = new Customer("Jake",3,"1200 Street, Cary NC");
 //        List<String> namesList = new ArrayList<String>();
 //        Region<Integer, String> customerRegion = clientCache.getRegion("Customer");
 //        try {
@@ -69,8 +65,8 @@ public class DataLoader implements Serializable{
 //            customerRegion.put(i,name);
 //        }
         customerRegion.put(1,c1);
-        customerRegion.put(2,c2);
-        customerRegion.put(3,c3);
+//        customerRegion.put(2,c2);
+//        customerRegion.put(3,c3);
 
     }
 
