@@ -1,4 +1,4 @@
-package com.sm.domain;
+package com.sm.geode.ref.domain;
 
 /**
  * Created by smanvi on 7/1/16.
@@ -8,6 +8,9 @@ public class Customer {
     String firstName;
     String lastName;
     String address;
+
+    //Needed for serialization
+    public Customer(){}
 
     public Customer(String firstName, String lastName, String address) {
         this.firstName = firstName;
@@ -37,5 +40,14 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

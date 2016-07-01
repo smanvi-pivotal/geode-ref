@@ -1,4 +1,4 @@
-package com.sm.domain;
+package com.sm.geode.ref.domain;
 
 import org.springframework.data.gemfire.mapping.Region;
 

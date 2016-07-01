@@ -12,7 +12,7 @@
             <parameter name="classes">
                 <string>com.sm.geode.ref.domain.*</string>
             </parameter>
-            <parameter name="check-portability"><string>true</string></parameter>
+            <!--<parameter name="check-portability"><string>true</string></parameter>-->
         </pdx-serializer>
     </pdx>
     <region name="Customer" refid="PROXY"/>

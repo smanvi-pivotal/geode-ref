@@ -11,7 +11,13 @@
 
     <groupId>com.sm</groupId>
     <artifactId>server-bootstrap</artifactId>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.sm</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
