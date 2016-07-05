@@ -14,8 +14,8 @@ public class Client {
     public static void main(String args[]) throws IOException {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("client/cache-config.xml");
         Region<Object, Customer> customerRegion = (Region<Object, Customer>) ctx.getBean("Customers");
-        Customer c = customerRegion.get(1);
-        System.in.read();
+
+        Object c = customerRegion.get(1);
         System.out.println(" RETRIVED :"+c);
     }
 }

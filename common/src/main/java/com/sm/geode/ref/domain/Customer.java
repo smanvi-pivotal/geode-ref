@@ -1,9 +1,11 @@
 package com.sm.geode.ref.domain;
 
+import java.io.Serializable;
+
 /**
  * Created by smanvi on 7/1/16.
  */
-public class Customer {
+public class Customer implements Serializable{
 
     String firstName;
     String lastName;
