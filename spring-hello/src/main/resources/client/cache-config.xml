@@ -12,8 +12,9 @@
         <prop key="log-level">fine</prop>
     </util:properties>
 
+    <bean id="mappingPdxSerializer" class="org.springframework.data.gemfire.mapping.MappingPdxSerializer"/>
 
-    <gfe:client-cache id="client-cache" pool-name="my_pool" properties-ref="gemfire-props"/>
+    <gfe:client-cache id="client-cache" pool-name="my_pool" properties-ref="gemfire-props" pdx-read-serialized="true" pdx-serializer-ref="mappingPdxSerializer" />
 
 
     <gfe:pool id="my_pool">

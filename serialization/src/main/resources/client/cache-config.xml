@@ -1,48 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:gfe="http://www.springframework.org/schema/gemfire"
-       xsi:schemaLocation="http://www.springframework.org/schema/gemfire http://www.springframework.org/schema/gemfire/spring-gemfire.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+<!DOCTYPE client-cache PUBLIC
+        "-//GemStone Systems, Inc.//GemFire Declarative Caching 6.5//EN"
+        "http://www.gemstone.com/dtd/cache8_0.dtd">
 
-
-    <util:properties id="gemfire-props">
-        <prop key="log-level">fine</prop>
-    </util:properties>
-
-
-    <gfe:client-cache id="client-cache" pool-name="my_pool" properties-ref="gemfire-props"/>
-    <!--<gfe:client-cache/>-->
-
-    <!--<gfe:client-cache id="client-cache" pool-name="my_pool"/>-->
-
-<!--<gfe:cache properties-ref="gemfire-props"/>-->
-
-    <gfe:pool id="my_pool">
-        <gfe:locator port="10334" host="localhost"/>
-    </gfe:pool>
-
-
-    <!--<gfe:client-region id="Customers" data-policy="EMPTY" cache-ref="client-cache"/>-->
-    <gfe:client-region id="Customers" data-policy="EMPTY" cache-ref="client-cache"/>
-
-
-    <!--<util:properties id="gemfire-props">-->
-        <!--<prop key="log-level">debug</prop>-->
-        <!--<prop key="locators">localhost[10334]</prop>-->
-        <!--<prop key="mcast-port">0</prop>-->
-        <!--<prop key="name">member1</prop>-->
-    <!--</util:properties>-->
-
-    <!--<gfe:cache id="spring-cache" properties-ref="gemfire-props"/>-->
-
-    <!--&lt;!&ndash;Too look up a region that was configured outside spring, if name is not specified id is used to lookup the region &ndash;&gt;-->
-    <!--&lt;!&ndash;<gfe:lookup-region id="region-bean-order" name="Orders"/>&ndash;&gt;-->
-
-
-    <!--<gfe:replicated-region id="Customers" cache-ref="spring-cache"/>-->
-
-
-</beans>
+<client-cache>
+    <pool name="myPool">
+        <locator host="localhost" port="10334"/>
+    </pool>
+    <pdx >
+        <pdx-serializer >
+            <class-name >com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer</class-name>
+            <parameter name="classes">
+                <string>com.sm.geode.ref.domain.Customer</string>
+            </parameter>
+            <!--<parameter name="check-portability"><string>true</string></parameter>-->
+        </pdx-serializer>
+    </pdx>
+    <region name="Customers" refid="PROXY"/>
+</client-cache>

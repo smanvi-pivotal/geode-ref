@@ -1,5 +1,6 @@
 package com.sm.geode.ref.domain;
 
+
 import java.io.Serializable;
 
 /**
