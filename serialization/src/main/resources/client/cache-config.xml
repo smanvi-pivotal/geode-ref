@@ -6,11 +6,11 @@
     <pool name="myPool">
         <locator host="localhost" port="10334"/>
     </pool>
-    <pdx >
+    <pdx>
         <pdx-serializer >
             <class-name >com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer</class-name>
             <parameter name="classes">
-                <string>com.sm.geode.ref.domain.Customer</string>
+                <string>com.sm.geode.ref.domain.PdxCustomer</string>
             </parameter>
             <!--<parameter name="check-portability"><string>true</string></parameter>-->
         </pdx-serializer>

@@ -2,18 +2,19 @@
 <!DOCTYPE cache PUBLIC
         "-//GemStone Systems, Inc.//GemFire Declarative Caching 7.0//EN"
         "http://www.gemstone.com/dtd/cache7_0.dtd">
+
 <cache>
 
+    <cache-server/>
     <pdx >
         <pdx-serializer >
             <class-name >com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer</class-name>
             <parameter name="classes">
-                <string>com.sm.geode.ref.domain.Customer</string>
+                <string>com.sm.geode.ref.domain.PdxCustomer</string>
             </parameter>
             <!--<parameter name="check-portability"><string>true</string></parameter>-->
         </pdx-serializer>
     </pdx>
 
     <region name="Customers"/>
-
 </cache>

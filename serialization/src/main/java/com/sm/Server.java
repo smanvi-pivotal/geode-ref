@@ -3,7 +3,7 @@ package com.sm;
 import com.gemstone.gemfire.cache.Cache;
 import com.gemstone.gemfire.cache.CacheFactory;
 import com.gemstone.gemfire.cache.Region;
-import com.sm.geode.ref.domain.Customer;
+import com.sm.geode.ref.domain.PdxCustomer;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -18,13 +18,13 @@ public class Server {
         Properties props = new Properties();
         props.setProperty("cache-xml-file", "server/cache-config.xml");
         props.setProperty("locators", "localhost[10334]");
+        props.setProperty("name", "S1");
+        props.setProperty("mcast-port", "0");
+
 
         Cache cache = new CacheFactory(props).create();
-        Region<Object, Customer> customerRegion = cache.getRegion("Customers");
-//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("server/cache-config.xml");
-//        Region<Object, Customer> customerRegion = (Region<Object, Customer>) context.getBean("Customers");
-////        Region<Object, Customer> customerRegion = cache.getRegion("Customers");
-        customerRegion.put(1,new Customer("John","Doe","NewYork"));
+        Region<Object, PdxCustomer> customerRegion = cache.getRegion("Customers");
+        customerRegion.put(3,new PdxCustomer("John","Doe","NewYork",111111));
         System.out.println("Hit Enter to exit");
         System.in.read();
     }
