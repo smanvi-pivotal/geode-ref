@@ -22,7 +22,7 @@
     <!--CUSTOM PDXSERIALIZER-->
     <pdx>
         <pdx-serializer>
-            <class-name>serializer.CustomSerializer</class-name>
+            <class-name>com.sm.geode.ref.serialization.pdxserializer.CustomSerializer</class-name>
         </pdx-serializer>
     </pdx>
 

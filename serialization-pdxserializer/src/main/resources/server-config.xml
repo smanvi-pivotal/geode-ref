@@ -1,14 +1,14 @@
-<!DOCTYPE client-cache PUBLIC
-        "-//GemStone Systems, Inc.//GemFire Declarative Caching 6.5//EN"
-        "http://www.gemstone.com/dtd/cache8_0.dtd">
+<?xml version="1.0"?>
+<!DOCTYPE cache PUBLIC
+        "-//GemStone Systems, Inc.//GemFire Declarative Caching 7.0//EN"
+        "http://www.gemstone.com/dtd/cache7_0.dtd">
 
-<client-cache>
-    <pool name="myPool">
-        <locator host="localhost" port="10334"/>
-    </pool>
+<cache>
 
+    <cache-server/>
+    
     <!--REFLECTION BASED AUTO Serializer-->
-    <!--<pdx>-->
+    <!--<pdx >-->
         <!--<pdx-serializer >-->
             <!--<class-name >com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer</class-name>-->
             <!--<parameter name="classes">-->
@@ -18,14 +18,12 @@
         <!--</pdx-serializer>-->
     <!--</pdx>-->
 
-
     <!--CUSTOM PDXSERIALIZER-->
     <pdx>
         <pdx-serializer>
-            <class-name>serializer.CustomSerializer</class-name>
+            <class-name>com.sm.geode.ref.serialization.pdxserializer.CustomSerializer</class-name>
         </pdx-serializer>
     </pdx>
 
-
-    <region name="Customers" refid="PROXY"/>
-</client-cache>
+    <region name="Customers"/>
+</cache>

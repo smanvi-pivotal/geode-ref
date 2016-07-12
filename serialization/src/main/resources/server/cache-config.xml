@@ -6,13 +6,22 @@
 <cache>
 
     <cache-server/>
-    <pdx >
-        <pdx-serializer >
-            <class-name >com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer</class-name>
-            <parameter name="classes">
-                <string>com.sm.geode.ref.domain.PdxCustomer</string>
-            </parameter>
-            <!--<parameter name="check-portability"><string>true</string></parameter>-->
+    
+    <!--REFLECTION BASED AUTO Serializer-->
+    <!--<pdx >-->
+        <!--<pdx-serializer >-->
+            <!--<class-name >com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer</class-name>-->
+            <!--<parameter name="classes">-->
+                <!--<string>com.sm.geode.ref.domain.PdxCustomer</string>-->
+            <!--</parameter>-->
+            <!--&lt;!&ndash;<parameter name="check-portability"><string>true</string></parameter>&ndash;&gt;-->
+        <!--</pdx-serializer>-->
+    <!--</pdx>-->
+
+    <!--CUSTOM PDXSERIALIZER-->
+    <pdx>
+        <pdx-serializer>
+            <class-name>serializer.CustomSerializer</class-name>
         </pdx-serializer>
     </pdx>
 
