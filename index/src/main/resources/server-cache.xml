@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE cache PUBLIC
+        "-//GemStone Systems, Inc.//GemFire Declarative Caching 7.0//EN"
+        "http://www.gemstone.com/dtd/cache7_0.dtd">
+<cache>
+
+    <cache-server/>
+
+    <pdx >
+        <pdx-serializer >
+            <class-name >com.gemstone.gemfire.pdx.ReflectionBasedAutoSerializer</class-name>
+            <parameter name="classes">
+                <string>com.sm.geode.ref.domain.*</string>
+            </parameter>
+        </pdx-serializer>
+    </pdx>
+
+    <region name="Customer">
+        <index name="zipIndex" expression="c.zip" from-clause="/Customer c" type="hash"/>
+    </region>
+
+</cache>

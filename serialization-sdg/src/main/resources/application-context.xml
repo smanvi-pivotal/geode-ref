@@ -11,11 +11,11 @@
         <prop key="log-level">debug</prop>
         <prop key="locators">localhost[10334]</prop>
         <prop key="mcast-port">0</prop>
-        <!--<prop key="name">member1</prop>-->
+        <prop key="name">member1</prop>
     </util:properties>
 
-    <gfe:cache id="spring-cache" properties-ref="gemfire-props" pdx-serializer-ref=""/>
-    <gfe:cache-server port="40404" cache-ref="spring-cache"/>
+    <gfe:cache id="spring-cache" properties-ref="gemfire-props"/>
+    <gfe:cache-server/>
     <gfe:replicated-region id="Customers" cache-ref="spring-cache"/>
 
     <!--Too look up a region that was configured outside spring, if name is not specified id is used to lookup the region -->

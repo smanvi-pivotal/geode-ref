@@ -1,11 +1,14 @@
 package com.sm.geode.ref;
 
+import com.gemstone.gemfire.cache.Cache;
 import com.gemstone.gemfire.cache.Region;
 import com.gemstone.gemfire.cache.client.ClientCache;
 import com.gemstone.gemfire.cache.client.ClientCacheFactory;
 import com.sm.geode.ref.domain.Customer;
+import com.sm.geode.ref.domain.PdxCustomer;
 
 import java.io.Serializable;
+import java.util.Random;
 
 /**
  * Created by smanvi on 4/24/16.
@@ -17,6 +20,36 @@ public class DataLoader implements Serializable{
     public DataLoader(ClientCache clientCache) {
         this.clientCache = clientCache;
     }
+
+    int[] zip = {27519, 28560, 10100, 20200,30300,40400,50500,60600,70700,80800};
+
+    public void loadManyCustomers(Cache cache){
+        Region<Object, PdxCustomer> customerRegion = cache.getRegion("Customer");
+        String fname = "John";
+        String lastName="Doe";
+        String address = "Downtown";
+        Random random = new Random();
+        int zipCount=0;
+
+        Long zipTracker=2016416048000L;
+        int ssnTracker=0;
+        for(int i = 0; i<1000; i++){
+             if(ssnTracker>=100){
+                 zipTracker = zipTracker + 1000;
+                 ssnTracker=0;
+             }
+
+            String ii = String.valueOf(i);
+//            PdxCustomer customer = new PdxCustomer(fname+ii,lastName+ii,address+ii,i,zip[random.nextInt(9)]+zipCount);
+            PdxCustomer customer = new PdxCustomer(fname+ii,lastName+ii,address+ii, zipTracker+ssnTracker, zipTracker);
+            customerRegion.put(i,customer);
+
+            ++ssnTracker;
+        }
+
+        System.out.println("DONE LOADING CUSTOMERS");
+    }
+
 
     public DataLoader() {
     }

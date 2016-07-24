@@ -9,12 +9,21 @@ public class PdxCustomer {
     String firstName;
     String lastName;
     String address;
-    int ssn;
+    Long ssn;
+    Long zip;
+
+    public PdxCustomer(String firstName, String lastName, String address, Long ssn, Long zip) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.ssn = ssn;
+        this.zip = zip;
+    }
 
     //Needed for serialization
     public PdxCustomer(){}
 
-    public PdxCustomer(String firstName, String lastName, String address, int ssn) {
+    public PdxCustomer(String firstName, String lastName, String address, Long ssn) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -53,6 +62,23 @@ public class PdxCustomer {
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 ", ssn=" + ssn +
+                ", zip=" + zip +
                 '}';
+    }
+
+    public Long getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(Long ssn) {
+        this.ssn = ssn;
+    }
+
+    public Long getZip() {
+        return zip;
+    }
+
+    public void setZip(Long zip) {
+        this.zip = zip;
     }
 }
