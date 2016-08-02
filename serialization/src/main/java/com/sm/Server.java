@@ -23,7 +23,7 @@ public class Server {
 
         Cache cache = new CacheFactory(props).create();
         Region<Object, PdxCustomer> customerRegion = cache.getRegion("Customers");
-        customerRegion.put(3,new PdxCustomer("John","Doe","NewYork",111111));
+        customerRegion.put(3,new PdxCustomer("John","Doe","NewYork",111111L));
         System.out.println("Hit Enter to exit");
         System.in.read();
     }
