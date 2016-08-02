@@ -1,5 +1,7 @@
 start locator --name=locator1 --J=-Dgemfire.jmx-manager=true --J="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5000"
-start server --name=geode-server1 --properties-file=../resources/geode-server.properties --server-port=0
+start server --name=geode-server1 --J=-Dgemfire.jmx-manager=true --J="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8983" --properties-file=../resources/geode-server.properties --server-port=0
+
+#start server --name=geode-server1 --properties-file=../resources/geode-server.properties --server-port=0
 #start server --name=geode-server2 --properties-file=../resources/geode-server.properties --server-port=0
 
 
@@ -14,3 +16,4 @@ start server --name=geode-server1 --properties-file=../resources/geode-server.pr
 list members
 #Debug mode :
 #start server --name=geode-server1 --J=-Dgemfire.jmx-manager=true --J="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=8983" --properties-file=../resources/geode-server.properties --server-port=0
+
