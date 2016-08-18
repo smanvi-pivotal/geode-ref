@@ -17,6 +17,7 @@
         <module>serialization-pdxserializer</module>
         <module>index</module>
         <module>serialization-sdg</module>
+        <module>wan</module>
     </modules>
     <name>geode-ref</name>
     <url>http://maven.apache.org</url>

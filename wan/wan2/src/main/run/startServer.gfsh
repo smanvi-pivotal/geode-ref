@@ -1,0 +1,4 @@
+start locator --name=wan2_locator1 --J=-Dgemfire.http-service-port=7080 --J=-Dgemfire.jmx-manager-port=7090 --port=7777 --properties-file=../resources/wan2-server.properties
+start server --name=wan2_server1 --properties-file=../resources/wan2-server.properties --server-port=0
+#start server --name=wan2_server2 --properties-file=../resources/wan2-server.properties --server-port=0
+connect --locator=localhost[7777]

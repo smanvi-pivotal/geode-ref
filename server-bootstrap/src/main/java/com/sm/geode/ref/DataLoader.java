@@ -8,6 +8,8 @@ import com.sm.geode.ref.domain.Customer;
 import com.sm.geode.ref.domain.PdxCustomer;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -28,8 +30,6 @@ public class DataLoader implements Serializable{
         String fname = "John";
         String lastName="Doe";
         String address = "Downtown";
-        Random random = new Random();
-        int zipCount=0;
 
         Long zipTracker=2016416048000L;
         int ssnTracker=0;
@@ -72,30 +72,9 @@ public class DataLoader implements Serializable{
     private void loadSampleData() {
         Region<Integer, Customer> customerRegion = clientCache.getRegion("Customer");
         Customer c1 = new Customer("John","AAA","123 Street, Cary NC");
-//        c1.cards = Collections.EMPTY_LIST;
         Customer c2 = new Customer("Jane","sdfdfs","456 Street, Raleigh NC");
-//        c2.cards = Collections.EMPTY_LIST;
-//
         Customer c3 = new Customer("Jake","sdfsdsf","1200 Street, Cary NC");
-//        List<String> namesList = new ArrayList<String>();
-//        Region<Integer, String> customerRegion = clientCache.getRegion("Customer");
-//        try {
-//            BufferedReader bf = new BufferedReader(new FileReader("/Users/smanvi/Downloads/names/sample_names.csv"));
-//            String name;
-//            while(true) {
-//                name=bf.readLine();
-//                if(name==null || name.length()==0) break;
-//                namesList.add(bf.readLine());
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        int i=0;
-//        for(String name : namesList){
-//            i++;
-//            customerRegion.put(i,name);
-//        }
+
         customerRegion.put(1,c1);
         customerRegion.put(2,c2);
         customerRegion.put(3,c3);
@@ -104,5 +83,21 @@ public class DataLoader implements Serializable{
 
     private void connect() {
         clientCache = new ClientCacheFactory().set("cache-xml-file","client-cache.xml").create();
+    }
+
+    public void loadBigData() {
+        Region<Integer, String> customerRegion = clientCache.getRegion("Customer");
+        Map<Integer, String> map = new HashMap();
+        String str="abcdefghijklmnopqrstuvwxyz";
+
+        for (int i = -100; i < 500; i++) {
+            if(i%1000==0){
+                customerRegion.putAll(map);
+                System.out.println("Finished putting "+i);
+                map.clear();
+            }
+            map.put(i,String.valueOf(i)+str);
+        }
+        customerRegion.putAll(map);
     }
 }
